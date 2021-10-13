@@ -1,25 +1,12 @@
-//playersChoice
-function playersChoice() {
-    let choice = prompt('[R]ock, [P]aper, or [S]cissors?');
-    let pChoice = choice.toUpperCase();
-    if (pChoice == 'R' || pChoice == 'P' || pChoice == 'S') {
-        return pChoice;
-    } else { alert('You must enter the letter R, P, or S.');
-        playersChoice();
-    };
-};
+//initializes game
+function start() {
+    let numGames = parseInt(prompt('How many games would you like to play'));
+    if (isNaN(numGames)) {
+        alert('You must enter a number!');
+        start();
+    } else game(numGames);
 
-//Outputs a random computer choice for Rock, Paper, or Scissors.
-function computerChoice() {
-    let theRandomNumber = Math.floor(Math.random() * 2);
-    switch (theRandomNumber) {
-        case 0:
-            return 'R';
-        case 1:
-            return 'P';
-        case 2:
-            return 'S';
-    };
+   reset();
 };
 
 //Game takes # of games input,
@@ -31,26 +18,38 @@ function game (numGames) {
     let computerScore = 0;
     let draw = 0;
 
-    for (i= 0; i < numGames; i++) {
+    for (i= 1; i <= numGames; i++) {
         switch (round(playersChoice(), computerChoice())) {
             case 'draw':
-                return draw =+ 1;
+                draw += 1;
+                break;
             case 'player':
-                return playerScore =+ 1;
+                playerScore += 1;
+                break;
             case 'computer':
-                return computerScore =+ 1;
+                computerScore += 1;
+                break;
         };
     };
 
     if (playerScore > computerScore) {
         alert(`The Player Wins!
-        Current Score: Player - ${playerScore} Computer - ${computerScore} Draw - ${draw}`);
+        Final Score: (${numGames})
+        Player - ${playerScore} 
+        Computer - ${computerScore} 
+        Draw - ${draw}`);
     } else if (playerScore < computerScore) {
         alert(`The Computer Wins!
-        Current Score: Player - ${playerScore} Computer - ${computerScore} Draw - ${draw}`);
+        Final Score: (${numGames})
+        Player - ${playerScore} 
+        Computer - ${computerScore} 
+        Draw - ${draw}`);
     } else {
         alert(`It's a Draw!
-        Current Score: Player - ${playerScore} Computer - ${computerScore} Draw - ${draw}`);
+        Final Score: (${numGames})
+        Player - ${playerScore} 
+        Computer - ${computerScore} 
+        Draw - ${draw}`);
     }
     
 };
@@ -58,17 +57,52 @@ function game (numGames) {
 //Round takes player input and computerChoices function,
 //and declares a winner.
 function round(pChoice, cChoice) {
-    switch (pChoice != cChoice) {
-        case (pChoice == 'R' && cChoice == 'S') || (pChoice == 'S' && cChoice == 'P') || (pChoice == 'P' && cChoice == 'R'):
-            alert(`You chose ${pChoice} and the computer chose ${cChoice}! You win!`);
+    if ((pChoice === 'R' && cChoice === 'S') || (pChoice === 'S' && cChoice === 'P') || (pChoice === 'P' && cChoice === 'R')) {
+            alert(`You Win!
+            Player - ${pChoice}
+            Computer - ${cChoice}!`);
             return 'player';
-        case (pChoice == 'S' && cChoice == 'R') || (pChoice == 'P' && cChoice == 'S') || (pChoice == 'R' && cChoice == 'P'):
-            alert(`You chose ${pChoice} and the computer chose ${cChoice}! The computer wins!`);
+    } else if ((pChoice === 'S' && cChoice === 'R') || (pChoice === 'P' && cChoice === 'S') || (pChoice === 'R' && cChoice === 'P')) {
+            alert(`You Lose!
+            Player - ${pChoice} 
+            Computer - ${cChoice}!`);
             return 'computer';
+    } else { alert(`Draw! 
+            Player - ${pChoice} 
+            Computer - ${cChoice}`);
+            return 'draw';  
     };
-    alert(`Draw! Player - ${pChoice} Computer - ${cChoice}`);
-    return 'draw';
 };
 
-let numGames = parseInt(prompt('How many games would you like to play'));
-game(numGames);
+//playersChoice
+function playersChoice() {
+    let choice = prompt('[R]ock, [P]aper, or [S]cissors?');
+    let pChoice = choice.toUpperCase();
+    if (pChoice === 'R'|| pChoice === 'S'  || pChoice === 'P') {
+            return pChoice;
+    } else {
+        alert('You must enter the letter R, P, or S.');
+        playersChoice();
+    };
+};
+
+//Outputs a random computer choice for Rock, Paper, or Scissors.
+function computerChoice() {
+    let theRandomNumber = Math.floor(Math.random() * 3);
+    switch (theRandomNumber) {
+        case 0:
+            return 'R';
+        case 1:
+            return 'P';
+        case 2:
+            return 'S';
+    };
+};
+
+//reset function
+function reset() {
+    if (confirm('Do you want to play more games?')) start();
+    else alert('Thank you for playing!');
+}
+
+start();
