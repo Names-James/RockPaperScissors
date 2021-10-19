@@ -1,0 +1,107 @@
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    background-image: url(background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h1,
+h3 {
+    margin: 0;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h1 {
+    color: whitesmoke;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 30px;
+}
+
+h3 {
+    background-color: rgba(245, 245, 245, 0.75);
+    border-radius: 30px;
+    padding: 10px;
+}
+
+p {
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+}
+
+.resultDisplay {
+    height: 30px;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex: 1;
+    height: fit-content;
+}
+
+.playerDisplay,
+.computerDisplay {
+    display: flex;
+    flex: 1;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(245, 245, 245, 0.5);
+}
+
+.scoreBoard {
+    display: flex;
+    flex: 1;
+    border: 2px solid black;
+    border-radius: 5px;
+    height: 50px;
+    background-color: rgba(245, 245, 245, 0.75);
+    justify-content: space-around;
+    align-items: center;
+}
+    .scoreBoard p {
+        margin: 0px;
+    }
+
+     .player,
+     .computer,
+     .draw {
+        display: flex;
+        flex: 1 1;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .roundDisplay {
+        text-align: center;
+    }
+
+.inputText {
+    color: black;
+}
+
+.inputDisplay {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+}
+
+    .button-box {
+        display: flex;
+        flex: 1;
+        gap: 100px;
+    }

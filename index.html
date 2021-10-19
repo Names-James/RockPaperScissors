@@ -4,14 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Rock, Paper, Scissors</title>
 </head>
 <body>
-<h1></h1>
+<h1>Rock, Paper, Scissors</h1>
+<h3 class = "resultDisplay">You've agreed to a high stakes game of "Rock, Paper, Scissors". The winner takes home $10,000,000 | The loser dies...</h3>
+<div class="container">
+    <div class="playerDisplay">
+        <img id="pCImg" src ="blank.png">
+    </div>
+    <div class="computerDisplay">
+        <img id="cCImg" src ="blank.png">
+    </div>
+</div>
+<p class = "roundDisplay">Round X / X</p>
+<div class="scoreBoard">
+   
+    <div class = "player">
+    <p>You:</p>
+    <p class = "pScoreDisplay">0</p>
+    </div>
 
+    <div class = "draw">
+    <p>Draw:</p>
+    <p class = 'drawDisplay'>0</p>
+    </div>
 
+    <div class = "computer">
+    <p>Bully:</p>
+    <p class = 'cScoreDisplay'>0</p>
+    </div>
+   
+</div>
 
-<script src="scripts.js">
+<div class="inputDisplay">
+    <p class="inputText"></p>
+    <div class = "button-box">
+    <button class="bOne"><img id="btnOne" src="one.png"></button>
+    <button class="bTwo"><img id="btnTwo" src="three.png"></button>
+    <button class="bThree"><img id="btnThree" src="five.png"></button>
+    </div>
+</div>
+
+<script src="script.js">    
 </script>
 </body>
 </html>
